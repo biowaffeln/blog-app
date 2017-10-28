@@ -1,7 +1,3 @@
-textarea {
-    resize: none;
-}
-
-input, textarea {
-    font: inherit;
+form {
+    flex-direction: column;
 }
