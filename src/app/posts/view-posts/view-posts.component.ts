@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../shared/post.service';
+import { Post } from '../shared/post.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-view-posts',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPostsComponent implements OnInit {
 
-  constructor() { }
+  posts$: Observable<Post[]>;
+
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.posts$ = this.postService.getCollection$();
   }
 
 }

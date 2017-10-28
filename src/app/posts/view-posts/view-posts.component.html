@@ -1,1 +1,7 @@
 <h1>view posts</h1>
+
+<div class="post" *ngFor = "let post of posts$ | async">
+    <h2>{{post.title}}</h2>
+    <p>{{post.content}}</p>
+    <p>{{post.timestamp | date}}</p>
+</div>
