@@ -1,0 +1,8 @@
+textarea {
+    width: 100%;
+    resize: none;
+}
+
+input, textarea {
+    font: inherit;
+}
