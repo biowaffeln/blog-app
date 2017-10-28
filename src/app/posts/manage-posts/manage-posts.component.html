@@ -1,9 +1,9 @@
 <h1>manage posts</h1>
 
-<form>
+<form [formGroup]="postsForm" (ngSubmit)="save()">
     <label for="title">title</label>
-    <input class="u-full-width" placeholder="your post title" id="title" type="text">
+    <input class="u-full-width" placeholder="your post title" id="title" type="text" formControlName="title">
     <label for="content">content</label>
-    <textarea id="content" placeholder="your post content"></textarea>
-    <button type="submit" class="button-primary">add</button>
+    <textarea class="u-full-width" placeholder="your post content" id="content" formControlName="content"></textarea>
+    <button type="submit" [disabled]="postsForm.invalid" class="button-primary">save</button>
 </form>
