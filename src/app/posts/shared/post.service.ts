@@ -18,7 +18,7 @@ export class PostService {
 
   add(data: Post): Promise<DocumentReference> {
     const timestamp = this.timestamp;
-    return this.afs.collection(this.path).add({...data, timestamp});
+    return this.afs.collection(this.path).add({ ...data, timestamp });
   }
 
   delete(id: string) {
@@ -26,10 +26,13 @@ export class PostService {
   }
 
   getCollection$(): Observable<Post[]> {
-    return this.afs.collection<Post>(this.path).snapshotChanges()
-    .map(docChangeActions => docChangeActions.map(changeAction => changeAction.payload))
-    .map(docChanges => docChanges.map(change => change.doc))
-    .map(docs => docs.map(doc => ({ ...doc.data() as Post, id: doc.id })));
+    return this.afs.collection<Post>(this.path).snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Post;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    });
   }
 
 }
