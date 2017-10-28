@@ -1,9 +1,13 @@
 <h1>manage posts</h1>
 
-<form [formGroup]="postsForm" (ngSubmit)="save()">
+<form [formGroup]="postForm" (ngSubmit)="save()">
     <label for="title">title</label>
     <input class="u-full-width" placeholder="your post title" id="title" type="text" formControlName="title">
     <label for="content">content</label>
     <textarea class="u-full-width" placeholder="your post content" id="content" formControlName="content"></textarea>
-    <button type="submit" [disabled]="postsForm.invalid" class="button-primary">save</button>
+    <button type="submit" [disabled]="postForm.invalid" class="button-primary">save</button>
 </form>
+
+<ul>
+    <li *ngFor="let post of posts$ | async">{{post.title}}</li>
+</ul>

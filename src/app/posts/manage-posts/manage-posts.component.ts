@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { PostService } from '../shared/post.service';
+import { Post } from '../shared/post.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-manage-posts',
@@ -8,20 +11,24 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 })
 export class ManagePostsComponent implements OnInit {
 
-  postsForm: FormGroup;
+  postForm: FormGroup;
+  posts$: Observable<Post[]>;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
-
-    this.postsForm = new FormGroup({
+    this.postForm = new FormGroup({
       title: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required)
     });
-
+    this.posts$ = this.postService.getPosts$();
   }
 
   save() {
+    const title = this.postForm.get('title').value;
+    const content = this.postForm.get('content').value;
+    this.postService.addPost({ title, content });
+    this.postForm.reset();
   }
 
 }
