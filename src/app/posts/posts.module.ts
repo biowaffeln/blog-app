@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ViewPostsComponent } from './view-posts/view-posts.component';
 import { ManagePostsComponent } from './manage-posts/manage-posts.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { PostService } from './shared/post.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms'
   exports: [
     ViewPostsComponent, ManagePostsComponent
   ],
-  declarations: [ViewPostsComponent, ManagePostsComponent]
+  declarations: [ViewPostsComponent, ManagePostsComponent],
+  providers: [PostService]
 })
 export class PostsModule { }
