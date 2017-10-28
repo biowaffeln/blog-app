@@ -16,12 +16,16 @@ export class PostService {
     return firebase.firestore.FieldValue.serverTimestamp();
   }
 
-  addPost(data: Post): Promise<DocumentReference> {
+  add(data: Post): Promise<DocumentReference> {
     const timestamp = this.timestamp;
     return this.afs.collection(this.path).add({...data, timestamp});
   }
 
-  getPosts$(): Observable<Post[]> {
+  delete(id: string) {
+    return this.afs.collection(this.path).doc(id).delete();
+  }
+
+  getCollection$(): Observable<Post[]> {
     return this.afs.collection<Post>(this.path).snapshotChanges()
     .map(docChangeActions => docChangeActions.map(changeAction => changeAction.payload))
     .map(docChanges => docChanges.map(change => change.doc))

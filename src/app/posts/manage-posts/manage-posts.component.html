@@ -9,5 +9,8 @@
 </form>
 
 <ul>
-    <li *ngFor="let post of posts$ | async">{{post.title}}</li>
+    <li *ngFor="let post of posts$ | async">
+        {{post.title}}
+        <button (click)="delete(post.id)">delete</button>
+    </li>
 </ul>

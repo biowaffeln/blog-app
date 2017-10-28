@@ -21,14 +21,18 @@ export class ManagePostsComponent implements OnInit {
       title: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required)
     });
-    this.posts$ = this.postService.getPosts$();
+    this.posts$ = this.postService.getCollection$();
   }
 
   save() {
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
-    this.postService.addPost({ title, content });
+    this.postService.add({ title, content });
     this.postForm.reset();
+  }
+
+  delete(id: string) {
+    this.postService.delete(id);
   }
 
 }
