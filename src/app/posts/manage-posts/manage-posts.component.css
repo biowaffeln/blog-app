@@ -1,3 +1,18 @@
-form {
-    flex-direction: column;
+form .btn-primary {
+    margin-top: 15px;
+}
+
+textarea {
+    resize: none;
+}
+
+ul li {
+    padding: 10px 0;
+    position: relative;
+}
+
+ul li .btn {
+    position: absolute;
+    right: 10px;
+    top: 4px;
 }

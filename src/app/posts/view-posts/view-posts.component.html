@@ -1,7 +1,14 @@
 <h1>view posts</h1>
 
-<div class="post" *ngFor = "let post of posts$ | async">
-    <h2>{{post.title}}</h2>
-    <p>{{post.content}}</p>
-    <p>{{post.timestamp | date}}</p>
+<div class="card" *ngFor="let post of posts$ | async">
+    <div class="card-header">
+        <div class="card-title h5">{{post.title}}</div>
+        <div class="card-subtitle text-gray">{{post.timestamp | date}}</div>
+    </div>
+    <div class="card-body">
+        <p>{{post.content}}</p>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary">Like</button>
+    </div>
 </div>
