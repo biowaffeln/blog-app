@@ -15,7 +15,11 @@ export class ViewPostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.posts$ = this.postService.getCollection$(ref => ref.orderBy('timestamp'));
+    this.posts$ = this.postService.getCollection$(ref => ref.orderBy('timestamp', 'desc'));    
   }
-
+  
+  like(id: string, likes: number) {
+    this.postService.update(id, {likes: likes+1})
+  }
+  
 }

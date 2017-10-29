@@ -1,6 +1,6 @@
 <h1>manage posts</h1>
 
-<form [formGroup]="postForm" (ngSubmit)="save()"  class="form-group">
+<form [formGroup]="postForm" (ngSubmit)="save()" class="form-group">
     <label for="title" class="form-label">title</label>
     <input class="form-input" placeholder="your post title" id="title" type="text" formControlName="title">
     <label class="form-label" for="content">content</label>
@@ -8,9 +8,23 @@
     <button class="btn btn-primary" type="submit" [disabled]="postForm.invalid">save</button>
 </form>
 
-<ul>
-    <li *ngFor="let post of posts$ | async">
-        {{post.title}}
-        <button class="btn" (click)="delete(post.id)"><i class="icon icon-cross"></i></button>
-    </li>
-</ul>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>likes</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts$ | async">
+            <td>{{post.title}}</td>
+            <td>{{post.likes}}</td>
+            <td>
+                <button class="btn" (click)="delete(post.id)">
+                    <i class="icon icon-cross"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

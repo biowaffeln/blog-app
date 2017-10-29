@@ -21,13 +21,13 @@ export class ManagePostsComponent implements OnInit {
       title: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required)
     });
-    this.posts$ = this.postService.getCollection$(ref => ref.orderBy('timestamp', 'desc'));
+    this.posts$ = this.postService.getCollection$(ref => ref.orderBy('likes', 'desc'));
   }
 
   save() {
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
-    this.postService.add({ title, content });
+    this.postService.add({ title, content, likes: 0 });
     this.postForm.reset();
   }
 

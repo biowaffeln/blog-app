@@ -9,6 +9,7 @@
         <p>{{post.content}}</p>
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary">Like</button>
+        <button class="btn btn-primary" (click)="like(post.id, post.likes)">Like</button>
+        <span>{{post.likes}} Likes</span>
     </div>
 </div>

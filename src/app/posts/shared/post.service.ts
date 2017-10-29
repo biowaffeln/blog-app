@@ -19,11 +19,15 @@ export class PostService {
 
   add(data: Post): Promise<DocumentReference> {
     const timestamp = this.timestamp;
-    return this.afs.collection(this.path).add({ ...data, timestamp });
+    return this.afs.collection<Post>(this.path).add({ ...data, timestamp });
   }
 
   delete(id: string) {
-    return this.afs.collection(this.path).doc(id).delete();
+    return this.afs.collection<Post>(this.path).doc(id).delete();
+  }
+
+  update(id: string, data: Partial<Post>) {
+    return this.afs.collection<Post>(this.path).doc(id).update(data);
   }
 
   getCollection$(ref?: QueryFn): Observable<Post[]> {
