@@ -15,7 +15,7 @@ export class ViewPostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.posts$ = this.postService.getCollection$();
+    this.posts$ = this.postService.getCollection$(ref => ref.orderBy('timestamp'));
   }
 
 }

@@ -21,7 +21,7 @@ export class ManagePostsComponent implements OnInit {
       title: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required)
     });
-    this.posts$ = this.postService.getCollection$();
+    this.posts$ = this.postService.getCollection$(ref => ref.orderBy('timestamp', 'desc'));
   }
 
   save() {
