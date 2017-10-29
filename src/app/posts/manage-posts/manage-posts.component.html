@@ -11,6 +11,6 @@
 <ul>
     <li *ngFor="let post of posts$ | async">
         {{post.title}}
-        <button class="btn" (click)="delete(post.id)">delete</button>
+        <button class="btn" (click)="delete(post.id)"><i class="icon icon-cross"></i></button>
     </li>
 </ul>
