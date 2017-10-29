@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore'
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Post } from './post.model';
 import * as firebase from 'firebase/app';
 import DocumentReference = firebase.firestore.DocumentReference;
