@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Post } from './post.model';
+import {Injectable} from '@angular/core';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {Post} from './post.model';
 import * as firebase from 'firebase/app';
+import {QueryFn} from 'angularfire2/firestore/interfaces';
+import {Observable} from 'rxjs/Observable';
 import DocumentReference = firebase.firestore.DocumentReference;
-import { QueryFn } from 'angularfire2/firestore/interfaces';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PostService {
