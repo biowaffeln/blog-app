@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { PostService } from '../shared/post.service';
 import { Post } from '../shared/post.model';
 import { Observable } from 'rxjs/Observable';
@@ -31,8 +31,8 @@ export class ManagePostsComponent implements OnInit {
     this.postForm.reset();
   }
 
-  delete(id: string) {
-    this.postService.delete(id);
+  remove(id: string) {
+    this.postService.remove(id);
   }
 
 }

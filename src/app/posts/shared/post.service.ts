@@ -22,11 +22,11 @@ export class PostService {
     return this.afs.collection<Post>(this.path).add({ ...data, timestamp });
   }
 
-  delete(id: string) {
+  remove(id: string): Promise<void> {
     return this.afs.collection<Post>(this.path).doc(id).delete();
   }
 
-  update(id: string, data: Partial<Post>) {
+  update(id: string, data: Partial<Post>): Promise<void> {
     return this.afs.collection<Post>(this.path).doc(id).update(data);
   }
 
