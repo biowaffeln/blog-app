@@ -13,13 +13,8 @@ export class PostService {
 
   constructor(private afs: AngularFirestore) { }
 
-  get timestamp() {
-    return firebase.firestore.FieldValue.serverTimestamp();
-  }
-
   add(data: Post): Promise<DocumentReference> {
-    const timestamp = this.timestamp;
-    return this.afs.collection<Post>(this.path).add({ ...data, timestamp });
+    return this.afs.collection<Post>(this.path).add(data);
   }
 
   remove(id: string): Promise<void> {
