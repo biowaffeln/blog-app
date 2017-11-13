@@ -23,11 +23,11 @@ export class PostService {
   }
 
   remove(id: string): Promise<void> {
-    return this.afs.collection<Post>(this.path).doc(id).delete();
+    return this.afs.doc<Post>(`${this.path}/${id}`).delete();
   }
 
   update(id: string, data: Partial<Post>): Promise<void> {
-    return this.afs.collection<Post>(this.path).doc(id).update(data);
+    return this.afs.doc<Post>(`${this.path}/${id}`).update(data);
   }
 
   getCollection$(ref?: QueryFn): Observable<Post[]> {
