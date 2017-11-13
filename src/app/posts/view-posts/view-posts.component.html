@@ -1,15 +1,15 @@
 <h1>view posts</h1>
 
 <div class="card" *ngFor="let post of posts$ | async">
-    <div class="card-header">
-        <div class="card-title h5">{{post.title}}</div>
-        <div class="card-subtitle text-gray">{{post.timestamp | date}}</div>
+  <div class="card-header">
+    <div class="card-title h5">{{post.title}}</div>
+    <div class="card-subtitle text-gray">{{post.timestamp | date}}</div>
     </div>
     <div class="card-body">
         <p>{{post.content}}</p>
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary" (click)="like(post.id, post.likes)">Like</button>
-        <span>{{post.likes}} Likes</span>
+      <button class="btn btn-primary" (click)="like(post)">Like</button>
+      <span>{{post.likes}} Likes</span>
     </div>
 </div>

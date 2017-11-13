@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PostService } from '../shared/post.service';
-import { Post } from '../shared/post.model';
-import { Observable } from 'rxjs/Observable';
+import {Component, OnInit} from '@angular/core';
+import {PostService} from '../shared/post.service';
+import {Post} from '../shared/post.model';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-view-posts',
@@ -18,8 +18,8 @@ export class ViewPostsComponent implements OnInit {
     this.posts$ = this.postService.getCollection$(ref => ref.orderBy('timestamp', 'desc'));
   }
 
-  like(id: string, likes: number) {
-    this.postService.update(id, {likes: likes + 1});
+  like(post: Post) {
+    this.postService.update(post.id, {likes: post.likes + 1});
   }
 
 }
