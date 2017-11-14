@@ -3,7 +3,9 @@
 <div class="card" *ngFor="let post of posts$ | async">
   <div class="card-header">
     <div class="card-title h5">{{post.title}}</div>
-    </div>
+    <div class="text-gray">Posted on {{post.created | date}}</div>
+
+  </div>
     <div class="card-body">
         <p>{{post.content}}</p>
     </div>

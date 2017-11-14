@@ -14,7 +14,7 @@ export class PostService {
   constructor(private afs: AngularFirestore) { }
 
   add(data: Post): Promise<DocumentReference> {
-    return this.afs.collection<Post>(this.path).add(data);
+    return this.afs.collection<Post>(this.path).add({...data, created: new Date()});
   }
 
   remove(id: string): Promise<void> {
