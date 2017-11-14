@@ -4,11 +4,13 @@ import {ViewPostsComponent} from './view-posts/view-posts.component';
 import {ManagePostsComponent} from './manage-posts/manage-posts.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PostService} from './shared/post.service';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule, AngularFirestoreModule
+
   ],
   exports: [
     ViewPostsComponent, ManagePostsComponent
