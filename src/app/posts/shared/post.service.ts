@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AngularFirestore} from 'angularfire2/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {Post} from './post.model';
 import * as firebase from 'firebase/app';
 import {QueryFn} from '@angular/fire/firestore/interfaces';
