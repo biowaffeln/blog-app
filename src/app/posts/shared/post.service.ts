@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {Post} from './post.model';
 import * as firebase from 'firebase/app';
-import {QueryFn} from 'angularfire2/firestore/interfaces';
+import {QueryFn} from '@angular/fire/firestore/interfaces';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import DocumentReference = firebase.firestore.DocumentReference;
 
 @Injectable()
