@@ -1,7 +1,8 @@
 # BlogApp
 
-A simple application for demonstrating how CRUD-Operations work in AngularFirebase.
-[See Demo](https://blog-app-bf875.firebaseapp.com/)
+A simple application for demonstrating how CRUD-Operations work in AngularFirebase. Repository for [this blog post](https://www.thecodecampus.de/blog/getting-started-firestore-angularfire2/).
+
+You can check out a demo of the application [here](https://blog-app-bf875.firebaseapp.com/).
 
 ## setup
 
